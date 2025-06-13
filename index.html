@@ -12,17 +12,25 @@
     <div class="brand">Chistes</div>
     <button class="toggle-menu" aria-label="Toggle menu">☰</button>
     <ul class="menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="acercaDe.html">Acerca de</a></li>
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#acercaDe">Acerca de</a></li>
     </ul>
   </nav>
 
   <main>
-    <div id="chiste-container" aria-live="polite"></div>
-    <div class="buttons">
-      <button id="anterior" aria-label="Chiste anterior">Anterior</button>
-      <button id="siguiente" aria-label="Chiste siguiente">Siguiente</button>
-    </div>
+    <section id="home" class="section-active">
+      <div id="chiste-container" aria-live="polite"></div>
+      <div class="buttons">
+        <button id="anterior" aria-label="Chiste anterior">Anterior</button>
+        <button id="siguiente" aria-label="Chiste siguiente">Siguiente</button>
+      </div>
+    </section>
+
+    <section id="acercaDe" class="section-hidden">
+      <h1>Acerca de</h1>
+      <p>Hola, soy <strong> Barbara </strong>. Estudiante de Licenciatura en Gestion de Tecnología de la Información en UADE.</p>
+      <p>Este proyecto fue creado como parte de un ejercicio académico para practicar HTML, CSS y JavaScript. </p>
+    </section>
   </main>
 
   <script src="script.js"></script>
