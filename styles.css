@@ -1,0 +1,125 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  padding: 1rem;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c3e50;
+  padding: 0.75rem 1rem;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+/* Botón toggle para menú en móvil */
+.toggle-menu {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: none; /* Oculto en escritorio */
+}
+
+/* Menú */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.menu li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.menu li a:hover {
+  text-decoration: underline;
+}
+
+/* Contenedor de chiste */
+#chiste-container {
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 500px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  font-size: 1.25rem;
+  text-align: center;
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+.buttons button {
+  padding: 0.5rem 1.25rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border: 2px solid #2c3e50;
+  background: white;
+  color: #2c3e50;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.buttons button:hover {
+  background-color: #2c3e50;
+  color: white;
+}
+
+/* Responsive - Pantallas pequeñas */
+@media (max-width: 600px) {
+  .toggle-menu {
+    display: block; /* Se muestra el botón toggle */
+  }
+
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 55px;
+    right: 1rem;
+    background-color: #2c3e50;
+    border-radius: 8px;
+    width: 150px;
+    display: none; /* Se oculta por defecto */
+  }
+
+  .menu.show {
+    display: flex; /* Se muestra cuando se activa */
+  }
+
+  .menu li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+}
