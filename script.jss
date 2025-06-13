@@ -1,3 +1,4 @@
+// Chistes
 const chistes = [
   "¿Por qué los pájaros no usan Facebook? Porque ya tienen Twitter.",
   "¿Qué le dice un gusano a otro gusano? Voy a dar una vuelta a la manzana.",
@@ -11,24 +12,39 @@ const chistes = [
   "¿Qué le dijo el 0 al 8? ¡Bonito cinturón!"
 ];
 
+// Mostrar chiste actual
 let actual = 0;
-
 const chisteContenedor = document.getElementById('chiste-container');
 const anterior = document.getElementById('anterior');
 const siguiente = document.getElementById('siguiente');
 
 function mostrarChiste(index) {
-  chisteContenedor.innerText = chistes[index];
+  if (chisteContenedor) {
+    chisteContenedor.innerText = chistes[index];
+  }
 }
 
-anterior.onclick = () => {
-  actual = (actual - 1 + chistes.length) % chistes.length;
-  mostrarChiste(actual);
-};
+// Botones para cambiar chiste, si existen (en acercaDe no están)
+if (anterior && siguiente) {
+  anterior.onclick = () => {
+    actual = (actual - 1 + chistes.length) % chistes.length;
+    mostrarChiste(actual);
+  };
 
-siguiente.onclick = () => {
-  actual = (actual + 1) % chistes.length;
-  mostrarChiste(actual);
-};
+  siguiente.onclick = () => {
+    actual = (actual + 1) % chistes.length;
+    mostrarChiste(actual);
+  };
 
-mostrarChiste(actual);
+  mostrarChiste(actual);
+}
+
+// Toggle menú responsive
+const toggleBtn = document.querySelector('.toggle-menu');
+const menu = document.querySelector('.menu');
+
+if (toggleBtn && menu) {
+  toggleBtn.addEventListener('click', () => {
+    menu.classList.toggle('show');
+  });
+}
