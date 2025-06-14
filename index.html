@@ -1,26 +1,38 @@
-// Cambiar secciones al hacer clic en el menú
-const linksMenu = document.querySelectorAll('.menu a');
-const secciones = document.querySelectorAll('main section');
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chistes Responsivos</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
 
-linksMenu.forEach(link => {
-  link.addEventListener('click', e => {
-    e.preventDefault();
+  <nav class="navbar">
+    <div class="brand">Chistes</div>
+    <button class="toggle-menu" aria-label="Toggle menu">☰</button>
+    <ul class="menu">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#acercaDe">Acerca de</a></li>
+    </ul>
+  </nav>
 
-    // Remover clase active de todos los links
-    linksMenu.forEach(l => l.classList.remove('active'));
-    link.classList.add('active');
+  <main>
+    <section id="home" class="section-active">
+      <div id="chiste-container" aria-live="polite"></div>
+      <div class="buttons">
+        <button id="anterior" aria-label="Chiste anterior">Anterior</button>
+        <button id="siguiente" aria-label="Chiste siguiente">Siguiente</button>
+      </div>
+    </section>
 
-    // Mostrar la sección correspondiente
-    const targetId = link.getAttribute('href').substring(1);
-    secciones.forEach(sec => {
-      sec.classList.add('section-hidden');
-      sec.classList.remove('section-active');
-    });
+    <section id="acercaDe" class="section-hidden">
+      <h1>Acerca de</h1>
+      <p>Hola, soy <strong>Barbara</strong>. Estudiante de Licenciatura en Gestión de Tecnología de la Información en UADE.</p>
+      <p>Este proyecto fue creado como parte de un ejercicio académico para practicar HTML, CSS y JavaScript.</p>
+    </section>
+  </main>
 
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-      targetSection.classList.remove('section-hidden');
-      targetSection.classList.add('section-active');
-    }
-  });
-});
+  <script src="script.js"></script>
+</body>
+</html>
