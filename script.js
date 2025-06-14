@@ -48,3 +48,30 @@ if (toggleBtn && menu) {
     menu.classList.toggle('show');
   });
 }
+// Cambiar secciones al hacer clic en el menú
+const linksMenu = document.querySelectorAll('.menu a');
+const secciones = document.querySelectorAll('main section');
+
+linksMenu.forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+
+    // Remover clase active de todos los links
+    linksMenu.forEach(l => l.classList.remove('active'));
+    link.classList.add('active');
+
+    // Mostrar la sección correspondiente
+    const targetId = link.getAttribute('href').substring(1);
+    secciones.forEach(sec => {
+      sec.classList.add('section-hidden');
+      sec.classList.remove('section-active');
+    });
+
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.classList.remove('section-hidden');
+      targetSection.classList.add('section-active');
+    }
+  });
+});
+
